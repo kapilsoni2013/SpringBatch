@@ -1,0 +1,3 @@
+"claimId","customerId","claimAmount","claimSubmissionDate","admissionDate","dischargeDate","policyReferenceId","beneficiaryName","beneficiaryEmail","beneficiaryMobile","policyStartDate","policyEndDate"
+"1","C1","1000","21-10-2021","21-10-2021","23-10-2021","PR-1","Ram","ram@test.com","9812598125","01-01-2021","01-01-2022"
+"2","C2","222","21-10-2022","21-10-2022","28-10-2022","PR-2","Sita","sita@test.com","9812598125","01-01-2019","01-01-2020"

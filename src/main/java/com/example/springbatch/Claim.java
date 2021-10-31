@@ -1,20 +1,47 @@
 package com.example.springbatch;
 
+import com.opencsv.bean.CsvBindByName;
+import com.opencsv.bean.CsvBindByPosition;
+
 import java.math.BigDecimal;
 
 
 public class Claim {
+    @CsvBindByPosition(position = 0)
+    @CsvBindByName(column = "claimId", required = true)
     private Integer claimId;
+    @CsvBindByPosition(position = 1)
+    @CsvBindByName(column = "customerId", required = true)
     private String customerId;
+    @CsvBindByPosition(position = 2)
+    @CsvBindByName(column = "claimAmount", required = true)
     private BigDecimal claimAmount;
+    @CsvBindByPosition(position = 3)
+    @CsvBindByName(column = "claimSubmissionDate", required = true)
     private String claimSubmissionDate;
+    @CsvBindByPosition(position = 4)
+    @CsvBindByName(column = "admissionDate", required = true)
     private String admissionDate;
+    @CsvBindByPosition(position =5)
+    @CsvBindByName(column = "dischargeDate", required = true)
     private String dischargeDate;
+    @CsvBindByPosition(position = 6)
+    @CsvBindByName(column = "policyReferenceId", required = true)
     private String policyReferenceId;
+    @CsvBindByPosition(position = 7)
+    @CsvBindByName(column = "beneficiaryName", required = true)
     private String beneficiaryName;
+    @CsvBindByPosition(position = 8)
+    @CsvBindByName(column = "beneficiaryEmail", required = true)
     private String beneficiaryEmail;
+    @CsvBindByPosition(position = 9)
+    @CsvBindByName(column = "beneficiaryMobile", required = true)
     private String beneficiaryMobile;
+    @CsvBindByPosition(position = 10)
+    @CsvBindByName(column = "policyStartDate", required = true)
     private String policyStartDate;
+    @CsvBindByPosition(position = 11)
+    @CsvBindByName(column = "policyEndDate", required = true)
     private String policyEndDate;
 
     public String getPolicyStartDate() {
@@ -33,7 +60,7 @@ public class Claim {
         this.policyEndDate = policyEndDate;
     }
 
-    private Boolean decider;
+    private Boolean isValidData;
 
     public Integer getClaimId() {
         return claimId;
@@ -115,12 +142,12 @@ public class Claim {
         this.beneficiaryMobile = beneficiaryMobile;
     }
 
-    public Boolean getDecider() {
-        return decider;
+    public Boolean getIsValidData() {
+        return isValidData;
     }
 
-    public void setDecider(Boolean decider) {
-        this.decider = decider;
+    public void setIsValidData(Boolean isValidData) {
+        this.isValidData = isValidData;
     }
 
     @Override
@@ -138,7 +165,7 @@ public class Claim {
                 ", beneficiaryMobile='" + beneficiaryMobile + '\'' +
                 ", policyStartDate='" + policyStartDate + '\'' +
                 ", policyEndDate='" + policyEndDate + '\'' +
-                ", decider=" + decider +
+                ", decider=" + isValidData +
                 '}';
     }
 }

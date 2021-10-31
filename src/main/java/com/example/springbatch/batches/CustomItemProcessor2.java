@@ -1,12 +1,13 @@
-package com.example.springbatch;
+package com.example.springbatch.batches;
 
+import com.example.springbatch.Claim;
 import org.springframework.batch.item.ItemProcessor;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
-public class CustomItemProcessor1 implements ItemProcessor<Claim, Claim> {
+public class CustomItemProcessor2 implements ItemProcessor<Claim, Claim> {
 
     private Random random=new Random(100);
     private DateTimeFormatter formatters = DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -21,13 +22,12 @@ public class CustomItemProcessor1 implements ItemProcessor<Claim, Claim> {
         LocalDate policyEndDate=LocalDate.parse(data.getDischargeDate(), formatters);
 
         if(admissionDate.isBefore(dischargeDate)){
-            data.setDecider(true);
+            data.setIsValidData(true);
         }else {
-            data.setDecider(false);
+            data.setIsValidData(false);
         }
 
 
         return data;
     }
-
 }
