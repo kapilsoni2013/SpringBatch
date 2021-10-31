@@ -7,12 +7,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.opencsv.CSVWriter;
-import org.springframework.batch.core.annotation.AfterWrite;
 import org.springframework.batch.item.ItemWriter;
 
 import javax.annotation.PreDestroy;
 
-public class CustomItemWriter implements ItemWriter<Employee> {
+public class CustomItemWriter implements ItemWriter<Claim> {
 
     private final CSVWriter trueCSVWriter;
     private final CSVWriter falseCSVWriter;
@@ -27,21 +26,18 @@ public class CustomItemWriter implements ItemWriter<Employee> {
     }
 
     @Override
-    public void write(List<? extends Employee> data) throws Exception {
-        List<? extends Employee> trueList = data.stream()
-                .filter(Employee::getDecider)
+    public void write(List<? extends Claim> data) throws Exception {
+        List<? extends Claim> trueList = data.stream()
+                .filter(Claim::getDecider)
                 .collect(Collectors.toList());
-        List<? extends Employee> falseList = data.stream()
+
+        List<? extends Claim> falseList = data.stream()
                 .filter(e->!e.getDecider())
                 .collect(Collectors.toList());
 
 
-        trueCSVWriter.writeAll(trueList.stream()
-                .map(e->new String[]{e.getId(),e.getFirstName(),e.getLastName()})
-                .collect(Collectors.toList()));
-        falseCSVWriter.writeAll(falseList.stream()
-                .map(e->new String[]{e.getId(),e.getFirstName(),e.getLastName()})
-                .collect(Collectors.toList()));
+        System.out.println(trueList);
+        System.out.println(falseList);
 
     }
 

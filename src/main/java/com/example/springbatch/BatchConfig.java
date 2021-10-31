@@ -39,31 +39,47 @@ public class BatchConfig
                 .get("readCSVFilesJob")
                 .incrementer(new RunIdIncrementer())
                 .start(step1())
+                .start(step2())
                 .build();
     }
  
     @Bean
     public Step step1() {
         return stepBuilderFactory.get("step1")
-                    .<Employee, Employee>chunk(1)
+                    .<Claim, Claim>chunk(1)
                 .reader(reader())
-                .processor(processor())
+                .processor(processor1())
                 .writer(writer())
                 .build();
     }
 
     @Bean
-    public ItemReader<Employee> reader() {
+    public Step step2() {
+        return stepBuilderFactory.get("step1")
+                .<Claim, Claim>chunk(1)
+                .reader(reader())
+                .processor(processor2())
+                .writer(writer())
+                .build();
+    }
+
+    @Bean
+    public ItemReader<Claim> reader() {
         return new CustomItemReader(inputFilePath);
     }
 
     @Bean
-    public ItemProcessor<Employee,Employee> processor(){
-        return new CustomItemProcessor();
+    public ItemProcessor<Claim, Claim> processor1(){
+        return new CustomItemProcessor1();
+    }
+
+    @Bean
+    public ItemProcessor<Claim, Claim> processor2(){
+        return new CustomItemProcessor1();
     }
      
     @Bean
-    public ItemWriter<Employee> writer(){
+    public ItemWriter<Claim> writer(){
         return new CustomItemWriter(trueOutputFilePath,falseOutputFilePath);
     }
 }

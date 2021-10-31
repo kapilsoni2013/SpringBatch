@@ -1,19 +1,19 @@
 package com.example.springbatch;
 
 public class ProcessorOutput {
-    private Employee employee;
+    private Claim claim;
     private Boolean decider;
 
-    public ProcessorOutput(Employee employee) {
-        this.employee = employee;
+    public ProcessorOutput(Claim claim) {
+        this.claim = claim;
     }
 
-    public Employee getEmployee() {
-        return employee;
+    public Claim getEmployee() {
+        return claim;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEmployee(Claim claim) {
+        this.claim = claim;
     }
 
     public Boolean getDecider() {
@@ -27,7 +27,7 @@ public class ProcessorOutput {
     @Override
     public String toString() {
         return "ProcessorOutput{" +
-                "employee=" + employee +
+                "employee=" + claim +
                 ", decider=" + decider +
                 '}';
     }

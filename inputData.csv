@@ -1,5 +1,5 @@
-id,firstName,lastName
-1,Lokesh,Gupta
-2,Amit,Mishra
-3,Pankaj,Kumar
-4,David,Miller
+claimId,customerId,claimAmount,claimSubmissionDate,admissionDate,dischargeDate,policyReferenceId,beneficiaryName,beneficiaryEmail,beneficiaryMobile,policyStartDate,policyEndDate
+1,C1,1000,21-10-2021,21-10-2021,23-10-2021,PR-1,Ram,ram@test.com,9812598125,01-01-2021,01-01-2022
+2,C2,222,21-10-2022,21-10-2022,28-10-2022,PR-2,Sita,sita@test.com,9812598125,01-01-2019,01-01-2020
+2,C3,444,21-10-2023,21-10-2023,18-10-2023,PR-3,Lakshman,lasshman@test.com,9812598125,01-01-2021,01-01-2022
+4,C4,3333,21-10-2024,21-10-2024,15-10-2023,PR-4,Hanuman,hanuman@test.com,9812598125,01-01-2017,01-01-2018
