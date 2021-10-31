@@ -43,6 +43,9 @@ public class Claim {
     @CsvBindByPosition(position = 11)
     @CsvBindByName(column = "policyEndDate", required = true)
     private String policyEndDate;
+    @CsvBindByPosition(position = 12)
+    @CsvBindByName(column = "maxEligibleAmt", required = true)
+    private String maxEligibleAmt;
 
     public String getPolicyStartDate() {
         return policyStartDate;
@@ -150,6 +153,22 @@ public class Claim {
         this.isValidData = isValidData;
     }
 
+    public String getMaxEligibleAmt() {
+        return maxEligibleAmt;
+    }
+
+    public void setMaxEligibleAmt(String maxEligibleAmt) {
+        this.maxEligibleAmt = maxEligibleAmt;
+    }
+
+    public Boolean getValidData() {
+        return isValidData;
+    }
+
+    public void setValidData(Boolean validData) {
+        isValidData = validData;
+    }
+
     @Override
     public String toString() {
         return "Claim{" +
@@ -165,7 +184,8 @@ public class Claim {
                 ", beneficiaryMobile='" + beneficiaryMobile + '\'' +
                 ", policyStartDate='" + policyStartDate + '\'' +
                 ", policyEndDate='" + policyEndDate + '\'' +
-                ", decider=" + isValidData +
+                ", maxEligibleAmt='" + maxEligibleAmt + '\'' +
+                ", isValidData=" + isValidData +
                 '}';
     }
 }
